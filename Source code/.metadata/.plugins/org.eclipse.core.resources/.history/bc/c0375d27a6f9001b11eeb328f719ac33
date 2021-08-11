@@ -1,0 +1,39 @@
+package com.lockedme;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class LockedMe {
+	static final String folderpath="G:\\My project phase 1\\LockedMeFiles";
+	
+	public static void main(String[] args) 
+	{
+		//Variable Declaration
+	    Scanner s = new Scanner (System.in);
+	    String fileName;
+	    int linescount;
+	    List<String> content = new ArrayList<String>();
+	    //Read file Names from user
+	    System.out.println("Enter name of the file: ");
+	     fileName = s.nextLine();
+	    //REad number of lines
+	     System.out.println("enter nuber of lines: ");
+	     linescount=Integer.parseInt(s.nextLine());
+	     //Read lines from user
+	     for (var i=1;i<=linescount;i++)
+	     {
+	    	 System.out.println("enter line"+i+":");
+	    	 content.add(s.nextLine());
+	     }
+		//save the content into the file
+	     boolean isSaved = FileManager.createFiles(folderpath,fileName,content);
+	     if (isSaved)
+	    	 System.out.println("File and data saved sucessfully");
+	     
+	     else 
+	    	 System.out.println("someerror occured. Please contact dileep");
+	     s.close();
+	}
+
+}
